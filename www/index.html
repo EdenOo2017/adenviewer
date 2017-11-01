@@ -41,6 +41,12 @@
 </head>
 
 <body>
+    <script>
+        var timer = setTimeout(function () {
+            window.location = '/logout'
+        }, 1000 * 60 * 1.1);
+    </script>
+
     <script src="/socket.io/socket.io.js"></script>
 
     <script>
@@ -52,7 +58,7 @@
         var blue = new THREE.Vector4(0.207843, 0.207843, 0.890196, 0.5);
         var brown = new THREE.Vector4(1, 0, 0.298039, 0.5);
 
-        function statusColor(status , colour){
+        function statusColor(status, colour) {
             for (var i = 0; i < status.length; i++) {
                 var RevitElementID = status[i]
                 viewer.search(RevitElementID.toString(), function (dbIds) {
@@ -69,7 +75,7 @@
         });
 
         socket.on('st1', function (STATUS1) {
-            statusColor(STATUS1, orange)            
+            statusColor(STATUS1, orange)
         });
 
         socket.on('st2', function (STATUS2) {
@@ -86,7 +92,7 @@
 
         socket.on('st5', function (STATUS5) {
             statusColor(STATUS5, brown)
-        });       
+        });
 
     </script>
     <div class="container">

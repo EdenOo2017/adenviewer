@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+    <div id="dialog" class="dialog dialog-effect-in">
+        <div class="dialog-front">
+            <div class="dialog-content">
+                <% if(locals.message_error){ %>
+                    <div class="alert alert-danger">
+                        <%=message_error.error%>
+                    </div>
+                    <% } %>
+                        <form id="register_form" class="dialog-form" name="registration" action="/register/data" method="POST">
+                            <fieldset>
+                                <legend>Register</legend>
+                                <div class="form-group">
+                                    <label for="user_username" class="control-label">User Name:</label>
+                                    <input type="text" id="user_username" class="form-control" name="user_username" value="<%= locals.user_username || '' %>"
+                                        required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_useremail" class="control-label">User Email:</label>
+                                    <input type="text" id="user_useremail" class="form-control" name="user_useremail" value="<%= locals.user_useremail || '' %>"
+                                        required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_password" class="control-label">Password:</label>
+                                    <input type="password" id="user_password" class="form-control" name="user_password" />
+                                </div>
+                                <br>
+                                <!-- <p><font size="3" color="red">This is some text!</font></p>             -->
+                                <div class="pad-btm-20">
+                                    <input type="submit" class="btn btn-default btn-block btn-lg" value="Continue" />
+                                </div>
+                                <div class="text-center">
+                                    <p>Return to
+                                        <a href="/" class="link user-actions">
+                                            <strong>log in page</strong>
+                                        </a>?</p>
+                                </div>
+                            </fieldset>
+                        </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
